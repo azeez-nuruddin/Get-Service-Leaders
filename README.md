@@ -1,4 +1,4 @@
-# Get Service Leaders
+# Get AOS Service Leaders
 ​
 This script provides a simple interface to fetch Acropolis OS service leaders in a Nutnaix cluster.
 ​
