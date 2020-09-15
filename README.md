@@ -11,28 +11,14 @@ At CVM prompt, run the script as follows:
 ```
 $ /home/nutanix/serviceability/bin/get_leader.py <service_name>
 ```
-​
 ## Examples
-​
 ```
 $ /home/nutanix/serviceability/bin/get_leader.py lcm
-```
-​
-```
 $ /home/nutanix/serviceability/bin/get_leader.py lcm arithmos
-```
-​
-```
 $ /home/nutanix/serviceability/bin/get_leader.py lcm arithmos 'health server'
-```
-​
-```
 $ /home/nutanix/serviceability/bin/get_leader.py all
 ```
-​
 To print usage, simply run the script without any arguments.
-​
-Author: Azeez Nuruddin
 ​
 ## Files
 ​
@@ -48,7 +34,6 @@ Author: Azeez Nuruddin
 5. Exit.
 ​
 ## Examples
-​
 ```
 nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$ ./get_leader.py ngt
 ngt : 10.63.18.99
@@ -83,12 +68,10 @@ zookeeper : 10.63.18.98
 zookeeper monitor : 10.63.18.98
 nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$
 ```
-​
- ## Disclaimer
-​
- This code is intended as a standalone example.  Subject to licensing restrictions defined on nutanix.dev, 
- this script can be downloaded, copied and/or modified in any way you see fit. Please be aware that all public 
- code samples provided by Nutanix are unofficial in nature, are provided as examples only, are unsupported and 
- will need to be heavily scrutinized and potentially modified before they can be used in a production environment. 
- All such code samples are provided on an as-is basis, and Nutanix expressly disclaims all warranties, express or 
- implied.
+## Disclaimer
+This code is intended as a standalone example.  Subject to licensing restrictions defined on nutanix.dev, 
+this script can be downloaded, copied and/or modified in any way you see fit. Please be aware that all public 
+code samples provided by Nutanix are unofficial in nature, are provided as examples only, are unsupported and 
+will need to be heavily scrutinized and potentially modified before they can be used in a production environment. 
+All such code samples are provided on an as-is basis, and Nutanix expressly disclaims all warranties, express or 
+implied.
