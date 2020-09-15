@@ -40,7 +40,9 @@ Author: Azeez Nuruddin
 ## Examples
 ​
     nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$ ./get_leader.py ngt
+    
     ngt : 10.63.18.99
+    
     nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$
     nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$ ./get_leader.py lcm arithmos "health server"
     arithmos : 10.63.18.96
