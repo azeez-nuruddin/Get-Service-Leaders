@@ -185,7 +185,7 @@ def validate_args(args):
     else:
         for arg in args:
             if arg.lower() not in [x.lower() for x in serviceList]:
-                print('Invalid argument: \'' + arg + '\' is not an AOS service.')
+                print('Invalid service name: \'' + arg + '\' is not an AOS service.')
             else:
                 newArgs.append(arg.lower())
     newArgs.sort()
