@@ -1,0 +1,142 @@
+{
+    "services": {
+        "acropolis": {
+            "command": "service=/appliance/logical/pyleaders/acropolis_master; id=$(zkcat $service/`zkls $service| head -1`); zeus_config_printer | grep -B 15 \" uuid: \\\"$id\\\"\" | grep \"service_vm_external_ip\" | awk '{print \"Acropolis leader ==>\", $2}'"
+        },
+        "alert manager": {
+            "command": "service=/appliance/logical/leaders/alert_manager; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"Alert manager ==>\", $2}'"
+        },
+        "aplos": {
+            "command": "service=/appliance/logical/pyleaders/aplos_engine_leader; id=$(zkcat $service/`zkls $service| head -1`); zeus_config_printer | grep -B 15 \" uuid: \\\"$id\\\"\" | grep \"service_vm_external_ip\"| awk '{print \"Aplos Engine ==>\", $2}'"
+        },
+        "aplos engine": {
+            "command": "service=/appliance/logical/pyleaders/aplos_engine_leader; id=$(zkcat $service/`zkls $service| head -1`); zeus_config_printer | grep -B 15 \" uuid: \\\"$id\\\"\" | grep \"service_vm_external_ip\"| awk '{print \"Aplos Engine ==>\", $2}'"
+        },
+        "aplos stats publisher": {
+            "command": "service=/appliance/logical/pyleaders/aplos_stats_publisher; id=$(zkcat $service/`zkls $service| head -1`); zeus_config_printer | grep -B 15 \" uuid: \\\"$id\\\"\" | grep \"service_vm_external_ip\" | awk '{print $2}'"
+        },
+        "aplos vm scanner": {
+            "command": "service=/appliance/logical/pyleaders/aplos_vm_scanner; id=$(zkcat $service/`zkls $service| head -1`); zeus_config_printer | grep -B 15 \" uuid: \\\"$id\\\"\" | grep \"service_vm_external_ip\"| awk '{print $2}'"
+        },
+        "aplos webhook": {
+            "command": "service=/appliance/logical/pyleaders/aplos_webhook; id=$(zkcat $service/`zkls $service| head -1`); zeus_config_printer | grep -B 15 \" uuid: \\\"$id\\\"\" | grep \"service_vm_external_ip\" | awk '{print $2}'"
+        },
+        "arithmos": {
+            "command": "service=/appliance/logical/leaders/arithmos; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"Arithmos leader\", $2}'"
+        },
+        "arithmoscollector": {
+            "command": "( ztop=/appliance/logical/goleaders; for z in $(zkls $ztop); do leader=$(zkls $ztop/$z | grep -m1 ^_c) || continue; echo \"$z\" $(zkcat $ztop/$z/$leader | strings); done | column -t; ) | grep -i ArithmosCollector"
+        },
+        "cassandra": {
+            "command": "service=/appliance/logical/leaders/cassandra_monitor; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"Cassandra Monitor ==>\",$2}'"
+        },
+        "cassandra monitor": {
+            "command": "service=/appliance/logical/leaders/cassandra_monitor; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"Cassandra Monitor ==>\",$2}'"
+        },
+        "catalog": {
+            "command": "service=/appliance/logical/pyleaders/catalog_master; id=$(zkcat $service/`zkls $service| head -1`); zeus_config_printer | grep -B 15 \" uuid: \\\"$id\\\"\" | grep \"service_vm_external_ip\"| awk '{print \"Catalog Leader ==>\", $2}'"
+        },
+        "cerebro": {
+            "command": "service=/appliance/logical/leaders/cerebro_master; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"Cerebro Master ==>\",$2}'"
+        },
+         "chronos": {
+            "command": "service=/appliance/logical/leaders/curator; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"Curator master ==>\",$2}'"
+        },
+        "cluster config": {
+            "command": "service=/appliance/logical/pyleaders/cluster_config_master; id=$(zkcat $service/`zkls $service| head -1`); zeus_config_printer | grep -B 15 \" uuid: \\\"$id\\\"\" | grep \"service_vm_external_ip\"| awk '{print $2}'"
+        },
+        "cluster health": {
+            "command": "python ~/ncc/bin/health_client.py | awk '{print $5}'"
+        },
+        "collectorframeworksvc": {
+            "command": "( ztop=/appliance/logical/goleaders; for z in $(zkls $ztop); do leader=$(zkls $ztop/$z | grep -m1 ^_c) || continue; echo \"$z\" $(zkcat $ztop/$z/$leader | strings); done | column -t; ) | grep -i CollectorFrameworkSvc"
+        },
+        "commandcollector": {
+            "command": "( ztop=/appliance/logical/goleaders; for z in $(zkls $ztop); do leader=$(zkls $ztop/$z | grep -m1 ^_c) || continue; echo \"$z\" $(zkcat $ztop/$z/$leader | strings); done | column -t; ) | grep -i CommandCollector"
+        },
+        "curator": {
+            "command": "service=/appliance/logical/leaders/curator; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"Curator master ==>\",$2}'"
+        },
+        "ergon": {
+            "command": "service=/appliance/logical/pyleaders/ergon_master; id=$(zkcat $service/`zkls $service| head -1`); zeus_config_printer | grep -B 15 \" uuid: \\\"$id\\\"\" | grep \"service_vm_external_ip\"| awk '{print \"Ergon leader ==>\",$2}'"
+        },
+        "genesis": {
+            "command": "service=/appliance/logical/pyleaders/genesis_cluster_manager; echo \"Genesis leader is\" $(zkcat $service/`zkls $service| head -1`)"
+        },
+        "genesis cluster manager": {
+            "command": "( ztop=/appliance/logical/pyleaders; for z in $(zkls $ztop); do leader=$(zkls $ztop/$z | grep -m1 ^n) || continue; echo \"$z\" $(zkcat $ztop/$z/$leader | strings); done | column -t; ) | grep -i \"genesis_cluster_manager\""
+        },
+        "genesis deployment leader": {
+            "command": "service=/appliance/logical/pyleaders/genesis_deployment_leader; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print $2}'"
+        },
+        "health scheduler": {
+            "command": "service=/appliance/logical/pyleaders/health_scheduler_master; echo \"Health Scheduler ==>\" $(zkcat $service/`zkls $service| head -1`)"
+        },
+        "health server": {
+            "command": "python /home/nutanix/ncc/bin/health_client.py"
+        },
+        "idfcollector": {
+            "command": "( ztop=/appliance/logical/goleaders; for z in $(zkls $ztop); do leader=$(zkls $ztop/$z | grep -m1 ^_c) || continue; echo \"$z\" $(zkcat $ztop/$z/$leader | strings); done | column -t; ) | grep -i IdfCollector"
+        },
+        "insights": {
+            "command": "service=/appliance/logical/leaders/insights; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print $2}'"
+        },
+        "lazan": {
+            "command": "service=/appliance/logical/pyleaders/lazan_master; id=$(zkcat $service/`zkls $service| head -1`); zeus_config_printer | grep -B 15 \" uuid: \\\"$id\\\"\" | grep \"service_vm_external_ip\"| awk '{print \"Lazan master ==>\", $2}'"
+        },
+        "lcm": {
+            "command": "lcm_leader"
+        },
+        "mantle": {
+            "command": "( ztop=/appliance/logical/leaders; for z in $(zkls $ztop | egrep -v 'vdisk|shard'); do [[ \"${#z}\" -gt 40 ]] && continue; leader=$(zkls $ztop/$z | grep -m1 ^n) || continue; echo \"$z\" $(zkcat $ztop/$z/$leader | strings); done | column -t; ) | grep -i mantle"
+        },
+        "minerva": {
+            "command": "service=/appliance/logical/pyleaders/minerva_service; echo \"Minerva ==>\" $(zkcat $service/`zkls $service| head -1`)"
+        },
+        "nccoutputcollector": {
+            "command": "( ztop=/appliance/logical/goleaders; for z in $(zkls $ztop); do leader=$(zkls $ztop/$z | grep -m1 ^_c) || continue; echo \"$z\" $(zkcat $ztop/$z/$leader | strings); done | column -t; ) | grep -i nccoutputcollector"
+        },
+        "nfs": {
+            "command": "service=/appliance/logical/leaders/nfs_namespace_master; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"NFS Name Space master ==>\", $2}'"
+        },
+        "nfs namespace": {
+            "command": "service=/appliance/logical/leaders/nfs_namespace_master; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"NFS Name Space master ==>\", $2}'"
+        },
+        "ngt": {
+            "command": "service=/appliance/logical/leaders/nutanix_guest_tools_master; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"Nutanix NGT master ==>\", $2}'"
+        },
+        "ntp": {
+            "command": "service=/appliance/logical/pyleaders/ntp; echo \"NTP Leader ==>\" $(zkcat $service/`zkls $service| head -1`)"
+        },
+        "nutanix guest tools": {
+            "command": "service=/appliance/logical/leaders/nutanix_guest_tools_master; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"Nutanix NGT master ==>\", $2}'"
+        },
+        "pithos": {
+            "command": "service=/appliance/logical/leaders/pithos; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"Pithos leader ==>\", $2}'"
+        },
+        "prism": {
+            "command": "service=/appliance/logical/leaders/prism_monitor; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"Prism Monitor ==>\",$2}'"
+        },
+        "prism monitor": {
+            "command": "service=/appliance/logical/leaders/prism_monitor; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"Prism Monitor ==>\",$2}'"
+        },
+        "snmp": {
+            "command": "service=/appliance/logical/pyleaders/snmp_manager; echo \"SNMP manager ==>\" $(zkcat $service/`zkls $service| head -1`)"
+        },
+        "snmp manager": {
+            "command": "service=/appliance/logical/pyleaders/snmp_manager; echo \"SNMP manager ==>\" $(zkcat $service/`zkls $service| head -1`)"
+        },
+        "uhura": {
+            "command": "service=/appliance/logical/pyleaders/uhura_master; id=$(zkcat $service/`zkls $service| head -1`); zeus_config_printer | grep -B 15 \" uuid: \\\"$id\\\"\" | grep \"service_vm_external_ip\"| awk '{print \"Uhura master ==>\", $2}'"
+        },
+        "zeuscollector": {
+            "command": "( ztop=/appliance/logical/goleaders; for z in $(zkls $ztop); do leader=$(zkls $ztop/$z | grep -m1 ^_c) || continue; echo \"$z\" $(zkcat $ztop/$z/$leader | strings); done | column -t; ) | grep -i ZeusCollector"
+        },
+        "zookeeper": {
+            "command": "service=/appliance/logical/leaders/zookeeper_monitor; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"Zookeeper Monitor ==>\",$2}'"
+        },
+        "zookeeper monitor": {
+            "command": "service=/appliance/logical/leaders/zookeeper_monitor; echo $(zkcat $service/`zkls $service| head -1`)| awk '{print \"Zookeeper Monitor ==>\",$2}'"
+        }
+    }
+}
