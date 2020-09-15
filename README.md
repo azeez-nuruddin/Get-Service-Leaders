@@ -21,12 +21,10 @@ $ /home/nutanix/serviceability/bin/get_leader.py all
 To print usage, simply run the script without any arguments.
 ​
 ## Files
-​
 - get_leader.py - Script
 - get_leader.json - Data file
 ​
 ## Script Workflow
-​
 1. Read and load from JSON, defined AOS services and commands.
 2. Read and validate service names in arguments.
 3. Fetch Acropolis service leader from the Controller VM.
