@@ -8,19 +8,29 @@ This script should be run within a Controller VM SSH session.
 ​
 At CVM prompt, run the script as follows:
 ​
-    $ /home/nutanix/serviceability/bin/get_leader.py <service_name>
+```
+$ /home/nutanix/serviceability/bin/get_leader.py <service_name>
+```
 ​
-    Examples:
+## Examples
 ​
-    $ /home/nutanix/serviceability/bin/get_leader.py lcm
+```
+$ /home/nutanix/serviceability/bin/get_leader.py lcm
+```
 ​
-    $ /home/nutanix/serviceability/bin/get_leader.py lcm arithmos
+```
+$ /home/nutanix/serviceability/bin/get_leader.py lcm arithmos
+```
 ​
-    $ /home/nutanix/serviceability/bin/get_leader.py lcm arithmos 'health server'
+```
+$ /home/nutanix/serviceability/bin/get_leader.py lcm arithmos 'health server'
+```
 ​
-    $ /home/nutanix/serviceability/bin/get_leader.py all
+```
+$ /home/nutanix/serviceability/bin/get_leader.py all
+```
 ​
-    To print usage, simply run the script without any arguments.
+To print usage, simply run the script without any arguments.
 ​
 Author: Azeez Nuruddin
 ​
@@ -39,39 +49,40 @@ Author: Azeez Nuruddin
 ​
 ## Examples
 ​
-
-    nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$ ./get_leader.py ngt
-    ngt : 10.63.18.99
-    nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$
-    nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$ ./get_leader.py lcm arithmos "health server"
-    arithmos : 10.63.18.96
-    health server : 10.63.18.97
-    cm : 10.63.18.97
-    nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$
-    nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$ ./get_leader.py all
-    acropolis : 10.63.18.99
-    alert manager : 10.63.18.99
-    aplos : 10.63.18.96
-    aplos engine : 10.63.18.96
-    aplos stats publisher : <leader not found>
-    aplos vm scanner : <leader not found>
-    aplos webhook : <leader not found>
-    arithmos : 10.63.18.96
-    arithmoscollector : 10.63.18.98
-    cassandra : 10.63.18.99
-    cassandra monitor : 10.63.18.99
-    catalog : 10.63.18.99
-    cerebro : 10.63.18.99
-    ...
-    ...
-    prism monitor : 10.63.18.96
-    snmp : 10.63.18.99
-    snmp manager : 10.63.18.99
-    uhura : 10.63.18.99
-    zeuscollector : 10.63.18.96
-    zookeeper : 10.63.18.98
-    zookeeper monitor : 10.63.18.98
-    nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$
+```
+nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$ ./get_leader.py ngt
+ngt : 10.63.18.99
+nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$
+nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$ ./get_leader.py lcm arithmos "health server"
+arithmos : 10.63.18.96
+health server : 10.63.18.97
+cm : 10.63.18.97
+nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$
+nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$ ./get_leader.py all
+acropolis : 10.63.18.99
+alert manager : 10.63.18.99
+aplos : 10.63.18.96
+aplos engine : 10.63.18.96
+aplos stats publisher : <leader not found>
+aplos vm scanner : <leader not found>
+aplos webhook : <leader not found>
+arithmos : 10.63.18.96
+arithmoscollector : 10.63.18.98
+cassandra : 10.63.18.99
+cassandra monitor : 10.63.18.99
+catalog : 10.63.18.99
+cerebro : 10.63.18.99
+...
+...
+prism monitor : 10.63.18.96
+snmp : 10.63.18.99
+snmp manager : 10.63.18.99
+uhura : 10.63.18.99
+zeuscollector : 10.63.18.96
+zookeeper : 10.63.18.98
+zookeeper monitor : 10.63.18.98
+nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$
+```
 ​
  ## Disclaimer
 ​
