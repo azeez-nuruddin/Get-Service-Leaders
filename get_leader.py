@@ -68,7 +68,7 @@
 #   ookeeper monitor : 10.63.18.98
 #   nutanix@NTNX-19FM6H130137-A-CVM:10.63.18.96:~/azeezn$
 #
-# .disclaimer
+# Disclaimer:
 #   This code is intended as a standalone example.  Subject to licensing restrictions defined on nutanix.dev, 
 # this script can be downloaded, copied and/or modified in any way you see fit. Please be aware that all public 
 # code samples provided by Nutanix are unofficial in nature, are provided as examples only, are unsupported and 
